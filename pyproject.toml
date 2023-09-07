@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "kca"
-version = "0.0.1dev"
+version = "0.0.2dev"
 description = "Keras Core Addons."
 license = "MIT"
 authors = ["Prannaya Gupta <prannayagupta@programmer.net>"]
