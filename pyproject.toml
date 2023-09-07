@@ -1,0 +1,48 @@
+[tool.poetry]
+name = "kca"
+version = "0.0.1dev"
+description = "Keras Core Addons."
+license = "MIT"
+authors = ["Prannaya Gupta <prannayagupta@programmer.net>"]
+readme = "README.md"
+homepage = "https://github.com/terminalai/kca"
+repository = "https://github.com/terminalai/kca"
+keywords = ["keras", "addons", "machine", "learning"]
+classifiers = [
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Software Development",
+    "License :: OSI Approved :: MIT License",
+    "Development Status :: 4 - Beta",
+    "Operating System :: MacOS",
+    "Operating System :: Unix",
+    "Programming Language :: Python :: 3",
+]
+
+[tool.poetry.urls]
+"Documentation" = "https://github.com/terminalai/kca"
+"Bug Tracker" = "https://github.com/terminalai/kca/issues"
+
+[tool.poetry.dependencies]
+python = ">=3.8"
+numpy = "<=1.24"
+tensorflow = "~=2.12.0"
+keras-core = "~=0.1.15"
+
+[tool.poetry.dev-dependencies]
+flake8 = ">=3.8.4"
+mypy = ">=0.930"
+pytest = ">=6.1.2"
+pytest-cov = ">=2.10.1"
+pytest-remotedata = ">=0.3.2"
+pytest-doctestplus = ">=0.8.0"
+pytest-xdist = ">=2.1.0"
+jupyter = ">=1.0.0"
+pylint = ">=2.6.0"
+
+[tool.poetry.group.dev.dependencies]
+ghp-import = "^2.1.0"
+
+[build-system]
+requires = ["setuptools", "poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
