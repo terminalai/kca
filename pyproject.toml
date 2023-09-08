@@ -1,13 +1,13 @@
 [tool.poetry]
 name = "kca"
 version = "0.0.2dev"
-description = "Keras Core Addons."
+description = "Keras Core Addons: Useful extra functionality for Keras Core."
 license = "MIT"
 authors = ["Prannaya Gupta <prannayagupta@programmer.net>"]
 readme = "README.md"
 homepage = "https://github.com/terminalai/kca"
 repository = "https://github.com/terminalai/kca"
-keywords = ["keras", "addons", "machine", "learning"]
+keywords = ["keras", "keras-core", "addons", "machine", "learning"]
 classifiers = [
     "Intended Audience :: Science/Research",
     "Topic :: Scientific/Engineering",

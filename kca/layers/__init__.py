@@ -5,7 +5,8 @@ __all__ = [
     "TransformerBlock",
     "NeuralDecisionTree", "NeuralDecisionForest",
     "DepthwiseConvMixerLayer", "PointwiseConvMixerLayer", "ConvMixerLayer", "ConvMixer",
-    "SpatialGatingUnit", "gMLPBlock", "TinyAttention"
+    "SpatialGatingUnit", "gMLPBlock", "TinyAttention",
+    "TabNet", "GatedResidualNetwork", "VariableSelection"
 ]
 
 from .residual import Residual
@@ -14,3 +15,5 @@ from .transformer import TransformerBlock
 from .ndf import NeuralDecisionTree, NeuralDecisionForest
 from .convmixer import DepthwiseConvMixerLayer, PointwiseConvMixerLayer, ConvMixerLayer, ConvMixer
 from .gmlp import SpatialGatingUnit, gMLPBlock, TinyAttention
+from .tabnet import TabNet
+from .tft import GatedResidualNetwork, VariableSelection

@@ -3,6 +3,8 @@ from kca.activations.glu import glu
 from typing import Tuple, List
 from kca.utils.types import Int, Float, TensorLike
 
+__all__ = ["GatedResidualNetwork", "VariableSelection"]
+
 
 class GatedResidualNetwork(layers.Layer):
     def __init__(self, units: Int, dropout_rate: Float, eps: Float = 1e-3, **kwargs):
