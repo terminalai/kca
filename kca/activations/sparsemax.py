@@ -40,7 +40,7 @@ def sparsemax(logits: TensorLike, axis: Int = -1) -> TensorLike:
 
     # We need its original shape for shape inference.
     shape = ops.shape(logits)
-    rank = len(shape)
+    rank = ops.ndim(logits)
     is_last_axis = (axis == -1) or (axis == rank - 1)
 
     if is_last_axis:
