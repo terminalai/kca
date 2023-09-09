@@ -62,3 +62,7 @@ OptimizerType = Union[
     keras.optimizers.Optimizer,
     str
 ]
+
+Generator = Union[
+    tf.random.Generator
+]
