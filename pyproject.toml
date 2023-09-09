@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "kca"
-version = "0.0.6dev"
+version = "0.0.7dev"
 description = "Keras Core Addons: Useful extra functionality for Keras Core."
 license = "MIT"
 authors = ["Prannaya Gupta <prannayagupta@programmer.net>"]
@@ -13,7 +13,7 @@ classifiers = [
     "Topic :: Scientific/Engineering",
     "Topic :: Software Development",
     "License :: OSI Approved :: MIT License",
-    "Development Status :: 4 - Beta",
+    "Development Status :: 1 - Planning",
     "Operating System :: MacOS",
     "Operating System :: Unix",
     "Programming Language :: Python :: 3",
