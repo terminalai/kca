@@ -7,7 +7,56 @@ from keras_core import ops
 from typing import Callable
 from kca.utils.types import TensorLike, Float
 
-__all__ = ["binary_focal_loss", "multiclass_focal_loss"]
+__all__ = ["sigmoid_focal_crossentropy_loss", "binary_focal_loss", "multiclass_focal_loss"]
+
+
+def sigmoid_focal_crossentropy_loss(y_true: TensorLike, y_pred: TensorLike, alpha: TensorLike = 0.25,
+                                    gamma: TensorLike = 2.0, from_logits: bool = False) -> TensorLike:
+    """Implements the focal loss function.
+
+    Focal loss was first introduced in the RetinaNet paper
+    (https://arxiv.org/pdf/1708.02002.pdf). Focal loss is extremely useful for
+    classification when you have highly imbalanced classes. It down-weights
+    well-classified examples and focuses on hard examples. The loss value is
+    much higher for a sample which is misclassified by the classifier as compared
+    to the loss value corresponding to a well-classified example. One of the
+    best use-cases of focal loss is its usage in object detection where the
+    imbalance between the background class and other classes is extremely high.
+
+    Args:
+        y_true: true targets tensor.
+        y_pred: predictions tensor.
+        alpha: balancing factor.
+        gamma: modulating factor.
+
+    Returns:
+        Weighted loss float `Tensor`. If `reduction` is `NONE`,this has the
+        same shape as `y_true`; otherwise, it is scalar.
+    """
+    if gamma and gamma < 0:
+        raise ValueError("Value of gamma should be greater than or equal to zero.")
+
+    # Get the cross_entropy for each entry
+    ce = ops.binary_crossentropy(y_true, y_pred, from_logits=from_logits)
+
+    # If logits are provided then convert the predictions into probabilities
+    if from_logits:
+        pred_prob = ops.sigmoid(y_pred)
+    else:
+        pred_prob = y_pred
+
+    p_t = (y_true * pred_prob) + ((1 - y_true) * (1 - pred_prob))
+    alpha_factor = 1.0
+    modulating_factor = 1.0
+
+    if alpha:
+        alpha_factor = y_true * alpha + (1 - y_true) * (1 - alpha)
+
+    if gamma:
+        modulating_factor = ops.power((1.0 - p_t), gamma)
+
+    # compute the final loss and return
+    return ops.sum(alpha_factor * modulating_factor * ce, axis=-1)
 
 
 def binary_focal_loss(beta: Float, gamma: Float = 2.) -> Callable[[TensorLike, TensorLike], TensorLike]:
