@@ -2,6 +2,7 @@
 
 __all__ = [
     "Residual", "StochasticDepth",
+    "InstanceNormalization",
     "TransformerBlock",
     "NeuralDecisionTree", "NeuralDecisionForest",
     "DepthwiseConvMixerLayer", "PointwiseConvMixerLayer", "ConvMixerLayer", "ConvMixer",
@@ -11,6 +12,7 @@ __all__ = [
 
 from .residual import Residual
 from .stochastic_depth import StochasticDepth
+from .norm import InstanceNormalization
 from .transformer import TransformerBlock
 from .ndf import NeuralDecisionTree, NeuralDecisionForest
 from .convmixer import DepthwiseConvMixerLayer, PointwiseConvMixerLayer, ConvMixerLayer, ConvMixer
